@@ -5,3 +5,5 @@ __pycache__/
 .venv/
 # Other files
 .DS_Store  # macOS-specific
+*.iml
+*.xml

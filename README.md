@@ -18,10 +18,3 @@ There are also some problems in SQL (MS SQL SERVER and PostgreSQL).
 
 - **Exploration**: Navigate through problem categories to explore solutions and learn diverse problem-solving strategies.
 - **Learning**: Utilize these solutions to understand various algorithms and techniques applied to solve LeetCode problems.
-
-
-| Problem Name                          | Difficulty | Time & Space Complexity | Languages    | 
-|---------------------------------------|------------|-------------------------|--------------|
-| 88. Merge Sorted Array                | Easy       |                         | Python, Java | 
-| 
-| 
