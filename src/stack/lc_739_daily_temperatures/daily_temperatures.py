@@ -1,4 +1,6 @@
 class Solution:
+    #Time complex O(n)
+    #Space complex O(n)
     def dailyTemperatures(self, temperatures: list[int]) -> list[int]:
         length = len(temperatures)
         res = [0] * length
