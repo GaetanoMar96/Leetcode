@@ -1,3 +1,4 @@
+import java.util.*;
 class Solution {
 
     class Pair {
@@ -17,7 +18,7 @@ class Solution {
         }
     }
     public int[] dailyTemperatures(int[] temperatures) {
-        Stack<Pair> stack = new Stack();
+        Stack<Pair> stack = new Stack<>();
         int[] res = new int[temperatures.length]; //init with all 0
         for(int i = 0; i < temperatures.length; i++) {
             int temperature = temperatures[i];

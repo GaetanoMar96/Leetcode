@@ -1,5 +1,8 @@
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 class Solution {
-    final PriorityQueue<Integer> pq = new PriorityQueue(
+    final PriorityQueue<Integer> pq = new PriorityQueue<>(
         Comparator.reverseOrder()
     ); //max heap
     public int lastStoneWeight(int[] stones) {

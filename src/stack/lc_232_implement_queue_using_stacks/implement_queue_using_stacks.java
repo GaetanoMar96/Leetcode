@@ -1,9 +1,10 @@
+import java.util.*;
 class MyQueue {
 
     Deque<Integer> front;
 
     public MyQueue() {
-        front = new LinkedList();
+        front = new LinkedList<>();
     }
     
     public void push(int x) {

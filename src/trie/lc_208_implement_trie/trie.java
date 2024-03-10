@@ -1,3 +1,4 @@
+import java.util.*;
 class Trie {
 
     TrieNode root = new TrieNode();

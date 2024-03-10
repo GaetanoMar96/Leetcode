@@ -1,3 +1,4 @@
+import java.util.*;
 class Solution {
 
     List<List<Integer>> res = new ArrayList<>();
@@ -29,6 +30,15 @@ class Solution {
                 res.add(level);
                 level = new ArrayList<>();
             }
+        }
+    }
+
+    static class Node {
+        int val;
+        List<Node> children;
+        Node(int val, List<Node> children) {
+            this.val = val;
+            this.children = children;
         }
     }
 }
