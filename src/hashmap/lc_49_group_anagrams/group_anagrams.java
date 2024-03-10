@@ -7,7 +7,7 @@ class Solution {
             char[] charArray = st.toCharArray();
             Arrays.sort(charArray);
             String sortedString = new String(charArray);
-            map.computeIfAbsent(sortedString, key -> new ArrayList()).add(st);
+            map.computeIfAbsent(sortedString, key -> new ArrayList<>()).add(st);
         }
         for(Map.Entry<String, List<String>> entry : map.entrySet()) {
             res.add(entry.getValue());

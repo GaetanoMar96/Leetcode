@@ -1,5 +1,4 @@
-import java.util.*;
-class Solution {
+class RemoveDuplicatedSortedArray {
     public int removeDuplicates(int[] nums) {
         int count=1;
         int ptr = 1;

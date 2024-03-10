@@ -1,7 +1,7 @@
 import java.util.*;
 class KthLargest {
 
-    final PriorityQueue<Integer> pq = new PriorityQueue(); //min heap
+    final PriorityQueue<Integer> pq = new PriorityQueue<>(); //min heap
     final int k;
 
     public KthLargest(int k, int[] nums) {
