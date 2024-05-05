@@ -1,42 +1,34 @@
-class Node:
-    def __init__(self, key, value, next=None) -> None:
-        self.key = key
-        self.value = value
-        self.next = next
-
 class HashMap:
 
-    def __init__(self):
-        self.head = Node(-1,-1)
+    def __init__(self, size: int):
+        self.size = size
+        self.hashmap = [[] for _ in range(size) ]
 
     def put(self, key: int, value: int) -> None:
-        temp = self.head
-        while temp.next:
-            if temp.key == key:
-                temp.value = value
-                break
-            temp = temp.next
-        node = Node(key, value)
-        temp.next = node
+        code = self.getHash(key)
+        slot = self.hashmap[code]
+        for i, (k,_) in enumerate(slot):
+            if k == key:
+                slot[i] = (key, value)
+                return
+        slot.append((key, value))
 
     def get(self, key: int) -> int:
-        temp = self.head
-        while temp:
-            if temp.key == key:
-                return temp.value
-            temp = temp.next
+        code = self.getHash(key)
+        slot = self.hashmap[code]
+        for i, (k,v) in enumerate(slot):
+            if k == key:
+                return v
         return -1
 
     def remove(self, key: int) -> None:
-        temp = self.head
-        prev = temp
-        while temp:
-            if temp.key == key:
-                prev.next = temp.next
+        code = self.getHash(key)
+        slot = self.hashmap[code]
+        for i, (k,_) in enumerate(slot):
+            if k == key:
+                del slot[i]
                 break
-            prev = temp
-            temp = temp.next
-    
-    def getHashCode(self):
-        #TODO
-        pass #for any positive key the hash code is key % array size M (to be prime)
+
+    def getHash(self, key):
+        #compute hash function % size to get an index in the range 0 - len(array) - 1
+        return hash(key) % self.size
