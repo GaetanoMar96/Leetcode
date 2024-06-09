@@ -1,5 +1,5 @@
 from collections import defaultdict
-import heap
+from heap import heapq
 
 class Solution:
     def shortestPath(self, n: int, edges: list[list[int]], src: int) -> dict[int, int]:
@@ -16,7 +16,7 @@ class Solution:
         visited = set()
         while pq:
             for _ in range(len(pq)):
-                w, v = heap.heapq.heappop(pq)
+                w, v = heapq.heappop(pq)
                 if v in visited:
                     continue
                 visited.add(v)
@@ -25,7 +25,7 @@ class Solution:
                     for wn, n in adj[v]:
                         distance = w + wn
                         if paths[n] > distance:
-                            heap.heapq.heappush(pq, (distance, n))
+                            heapq.heappush(pq, (distance, n))
         for key in paths:
             if paths[key] == float('inf'):
                 paths[key] = -1

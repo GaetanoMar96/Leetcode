@@ -1,16 +1,28 @@
 from collections import defaultdict, deque
 class Solution:
     def foreignDictionary(self, words: list[str]) -> str:
-        indegree = defaultdict(int)
+        indegree = {}
         adj = defaultdict(list)
-        for word in words:
-            edges = 0
-            for ch in word:
-                indegree[ch] += edges
-                edges += 1
-            for i in range(len(word)-1):
-                for j in range(i+1, len(word)):
-                    adj[word[i]].append(word[j])
+        #collect all keys
+        chars = set(''.join(words))
+        for c in chars:
+            indegree[c] = 0
+        for i in range(1, len(words)):
+            word1, word2 = words[i-1], words[i]
+            #compare each char and see which comes first
+            l1, l2 = 0, 0
+            found_diff = False
+            while l1 < len(word1) and l2 < len(word2):
+                if word1[l1] != word2[l2]:
+                    adj[word1[l1]].append(word2[l2])
+                    indegree[word2[l2]] += 1
+                    found_diff = True
+                    break
+                l1, l2 = l1 + 1, l2 + 1
+            if not found_diff and len(word1) > len(word2):
+            # Invalid case: a longer word comes before a shorter word
+                return ""
+
         q = deque()
         for key in indegree:
             if indegree[key] == 0:
@@ -26,9 +38,6 @@ class Solution:
                         indegree[char] -= 1
                         if indegree[char] == 0:
                             q.append(char)
-                            
-        for key in indegree:
-            if indegree[key] != 0:
-                order += key
-        
+        if len(order) != len(indegree.keys()):
+            return ''     
         return order
